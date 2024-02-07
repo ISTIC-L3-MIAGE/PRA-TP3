@@ -47,4 +47,16 @@ public class TicTacToeTest {
 		// ----------------------
 	}
 
+	@Test
+	public void testGetJoueur() {
+		// scénarios vérifiant le bon fonctionnement de getTurn()
+	}
+
+	@Test
+	public void testGetVainqueur() {
+		// scénarios vérifiant le bon fonctionnement de getWinner()
+		// et ainsi de suite pour numberOfRounds(), \dots ,
+		// jusqu’à play()
+	}
+
 }
