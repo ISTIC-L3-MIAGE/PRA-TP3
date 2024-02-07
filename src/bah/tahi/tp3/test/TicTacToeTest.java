@@ -6,9 +6,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import bah.tahi.tp3.AbstractTicTacToe;
-import bah.tahi.tp3.TicTacToeV1;
+import fr.istic.l3miage.morpion.AbstractTicTacToe;
 import fr.istic.l3miage.morpion.Owner;
+import fr.istic.l3miage.morpion.TicTacToeV7;
 
 public class TicTacToeTest {
 	AbstractTicTacToe morpions;
@@ -17,13 +17,13 @@ public class TicTacToeTest {
 
 	@BeforeEach
 	public void setUp() {
-		morpions = new TicTacToeV1();
+//		morpions = new TicTacToeV1();
 //		morpions = new TicTacToeV2();
 //		morpions = new TicTacToeV3();
 //		morpions = new TicTacToeV4();
 //		morpions = new TicTacToeV5();
 //		morpions = new TicTacToeV6();
-//		morpions = new TicTacToeV7();
+		morpions = new TicTacToeV7();
 	}
 
 	@Test
