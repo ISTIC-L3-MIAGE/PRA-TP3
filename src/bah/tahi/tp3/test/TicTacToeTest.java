@@ -1,6 +1,8 @@
 package bah.tahi.tp3.test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -27,28 +29,50 @@ public class TicTacToeTest {
 	}
 
 	@Test
-	public void testInit() {
-		assertEquals(morpions.getTurn(), Owner.FIRST, "Le premier doit jouer");
+	public void testInit() { // OK
 		testInvariant();
-		// ----------------------
-		// SÉQUENCE À COMPLÉTER
-		// ----------------------
+		testEmptyGrid();
+		assertEquals(morpions.getTurn(), Owner.FIRST, "Le premier doit jouer");
+		assertNull(morpions.getWinner(), "Il ne doit pas y avoir de gagnant au début de la partie");
+		assertNull(morpions.numberOfRounds(), "Il doit y avoir 0 coup joué au début de la partie");
+		assertTrue(!morpions.gameOver(), "La partie ne doit pas être terminée au debut");
 	}
 
 	/**
 	 * Fonction à utiliser après chaque action, pour tester les conditions qui
 	 * doivent toujours être vraies
 	 */
-	private void testInvariant() {
+	private void testInvariant() { // Presque OK
 		assertTrue(morpions.numberOfRounds() >= 0, "Nombre de coups >= 0");
 		assertTrue(morpions.numberOfRounds() <= NB_CASES, "Nombre de coups <= " + NB_CASES);
-		// ----------------------
-		// SÉQUENCE À COMPLÉTER
-		// ----------------------
+		// Nos scénarios
+		assertNotEquals(morpions.getTurn(), null, "Il doit avoir un joueur après chaque action");
+
+		// 1. Tester si on a au moins 0 et au plus 1 pion dans une case (à compléter)
+		// Compléter d'autres scénarios ...
 	}
 
 	@Test
-	public void testGetJoueur() {
+	private void testEmptyGrid() { // OK
+		for (int i = 0; i < NB_CASES / TAILLE; i++) {
+			for (int j = 0; j < TAILLE; j++) {
+				assertNull(morpions.getSquare(i, j), "La case doit être vide");
+				assertTrue(morpions.legalMove(i, j), "La case n'est  pas libre");
+			}
+		}
+	}
+
+	@Test
+	public void testRestart() { // OK
+		// On recommence la partie
+		morpions.restart();
+		// Et ensuite on test l'état de la partie
+		testInit();
+
+	}
+
+	@Test
+	public void testGetJoueur() { // En cours
 		// scénarios vérifiant le bon fonctionnement de getTurn()
 	}
 

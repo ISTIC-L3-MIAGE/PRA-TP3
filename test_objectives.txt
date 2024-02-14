@@ -1,13 +1,79 @@
+// TEST DE CHAQUE METHODE
+
 @Test
 public void testRestart()
 // scénarios vérifiant le bon fonctionnement de restart()
+//Terminé
 
 @Test
 public void testGetJoueur()
 // scénarios vérifiant le bon fonctionnement de getTurn()
 
 @Test
+public void testGetSquare()
+// scénarios vérifiant le bon fonctionnement de getSquare()
+
+@test
 public void testGetVainqueur()
 // scénarios vérifiant le bon fonctionnement de getWinner()
-// et ainsi de suite pour numberOfRounds(), \dots ,
-// jusqu’à play()
+
+@test
+public void testValidSquare()
+// scénarios vérifiant le bon fonctionnement de validSquare()
+
+@test
+public void testNextPlayer()
+// scénarios vérifiant le bon fonctionnement de nextPlayer()
+
+@test
+public void testPlay()
+// scénarios vérifiant le bon fonctionnement de play()
+
+@test
+public void testLegalMove()
+// scénarios vérifiant le bon fonctionnement de legalMove()
+
+@test
+public void testNumberOfRounds()
+// scénarios vérifiant le bon fonctionnement de numberOfRounds()
+
+@test
+public void testGameOver()
+// scénarios vérifiant le bon fonctionnement de gameOver()
+
+// TESTS SPECIFIQUES
+
+@Test
+public void testInit()
+// Scénario(s) vérifiant l’état du jeu avant le premier coup :
+// * non-fin de partie
+// * cases accessibles
+
+@Test
+public void testPremierCoup()
+// Scénario vérifiant le premier coup joué, notamment :
+// * position correcte ou non
+// * non-fin de partie
+// * identité du premier joueur
+
+@Test
+public void testPartiePasFinie()
+// Scénario explorant les situations de non-fin de partie,
+// avec vérification systématique de gameOver() == false
+
+@Test
+public void testControle()
+// Scénario tentant divers coups non autorisés,
+// avec vérification systématique de legalMove()
+
+@Test
+public void testFinPartie()
+// Scénarios explorant les situations de fin de partie,
+// avec vérification systématique de gameOver() et de
+// getWinner() :
+// * alignement horizontal (grille pleine ou non)
+// * alignement vertical (grille pleine ou non)
+// * alignement diagonal (grille pleine ou non)
+
+
+
