@@ -2,7 +2,6 @@ package bah.tahi.tp3.test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -32,9 +31,9 @@ public class TicTacToeTest {
 	public void testInit() { // OK
 		testInvariant();
 		testEmptyGrid();
-		assertEquals(morpions.getTurn(), Owner.FIRST, "Le premier doit jouer");
-		assertNull(morpions.getWinner(), "Il ne doit pas y avoir de gagnant au début de la partie");
-		assertNull(morpions.numberOfRounds(), "Il doit y avoir 0 coup joué au début de la partie");
+		assertEquals(Owner.FIRST, morpions.getTurn(), "Le premier doit jouer");
+		assertEquals(Owner.NONE, morpions.getWinner(), "Il ne doit pas y avoir de gagnant au début de la partie");
+		assertEquals(0, morpions.numberOfRounds(), "Il doit y avoir 0 coup joué au début de la partie");
 		assertTrue(!morpions.gameOver(), "La partie ne doit pas être terminée au debut");
 	}
 
@@ -46,17 +45,19 @@ public class TicTacToeTest {
 		assertTrue(morpions.numberOfRounds() >= 0, "Nombre de coups >= 0");
 		assertTrue(morpions.numberOfRounds() <= NB_CASES, "Nombre de coups <= " + NB_CASES);
 		// Nos scénarios
-		assertNotEquals(morpions.getTurn(), null, "Il doit avoir un joueur après chaque action");
+		assertNotEquals(Owner.NONE, morpions.getTurn(), "Il doit avoir un joueur après chaque action");
 
 		// 1. Tester si on a au moins 0 et au plus 1 pion dans une case (à compléter)
 		// Compléter d'autres scénarios ...
 	}
 
-	@Test
+	/**
+	 * Javadoc à compléter par Oumou
+	 */
 	private void testEmptyGrid() { // OK
 		for (int i = 0; i < NB_CASES / TAILLE; i++) {
 			for (int j = 0; j < TAILLE; j++) {
-				assertNull(morpions.getSquare(i, j), "La case doit être vide");
+				assertEquals(Owner.NONE, morpions.getSquare(i, j), "La case doit être vide");
 				assertTrue(morpions.legalMove(i, j), "La case n'est  pas libre");
 			}
 		}
@@ -68,19 +69,30 @@ public class TicTacToeTest {
 		morpions.restart();
 		// Et ensuite on test l'état de la partie
 		testInit();
-
 	}
 
 	@Test
-	public void testGetJoueur() { // En cours
+	public void testGetJoueur() { // OK
 		// scénarios vérifiant le bon fonctionnement de getTurn()
+		assertEquals(Owner.FIRST, morpions.getTurn(), "Dès le début du jeu, ça doit être au premier joueur de jouer");
+		morpions.nextPlayer();
+
+		for (int i = 0; i < 10; i++) {
+			if (i % 2 == 0) {
+				assertEquals(Owner.SECOND, morpions.getTurn(), "ça doit être au deuxième joueur de jouer");
+			} else {
+				assertEquals(Owner.FIRST, morpions.getTurn(), "ça doit être au premier joueur de jouer");
+			}
+			morpions.nextPlayer();
+		}
 	}
 
 	@Test
 	public void testGetVainqueur() {
 		// scénarios vérifiant le bon fonctionnement de getWinner()
-		// et ainsi de suite pour numberOfRounds(), \dots ,
-		// jusqu’à play()
+		// et ainsi de suite pour numberOfRounds(), ... , jusqu’à play()
+		assertEquals(Owner.FIRST, morpions.getTurn(), "Dès le début du jeu, ça doit être au premier joueur de jouer");
+
 	}
 
 }
