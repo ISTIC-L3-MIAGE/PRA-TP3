@@ -8,13 +8,22 @@ public void testRestart()
 @Test
 public void testGetJoueur()
 // scénarios vérifiant le bon fonctionnement de getTurn()
+//Terminé
 
 @Test
 public void testGetSquare()
 // scénarios vérifiant le bon fonctionnement de getSquare()
 
 @test
-public void testGetVainqueur()
+public void testVictoire1()
+// scénarios vérifiant le bon fonctionnement de getWinner()
+
+@test
+public void testVictoire2()
+// scénarios vérifiant le bon fonctionnement de getWinner()
+
+@test
+public void testMatchNul()
 // scénarios vérifiant le bon fonctionnement de getWinner()
 
 @test

@@ -91,6 +91,63 @@ public class TicTacToeTest {
 	 * Javadoc à compléter par Oumou
 	 */
 	@Test
+	public void testGetSquare() {
+		assertEquals(Owner.NONE, morpions.getSquare(0, 0), "La case doit être vide");
+		morpions.play(0, 0);
+		assertEquals(Owner.FIRST, morpions.getSquare(0, 0), "La case doit appartenir au premier joueur");
+
+		// morpions.nextPlayer();
+
+		assertEquals(Owner.NONE, morpions.getSquare(0, 1), "La case doit être vide");
+		morpions.play(0, 1);
+		assertEquals(Owner.SECOND, morpions.getSquare(0, 1), "La case doit appartenir au second joueur");
+
+	}
+
+	/**
+	 * Javadoc à compléter par Oumou
+	 */
+	@Test
+	public void testValidSquare() {
+		// pour oumou
+	}
+
+	/**
+	 * Javadoc à compléter par Oumou
+	 */
+	@Test
+	public void testNextPlayer() {
+		// pour oumou
+	}
+
+	/**
+	 * Javadoc à compléter par Oumou
+	 */
+	@Test
+	public void testPlay() {
+		// pour oumou
+	}
+
+	/**
+	 * Javadoc à compléter par Oumou
+	 */
+	@Test
+	public void testLegalMove() {
+		// pour oumou
+	}
+
+	/**
+	 * Javadoc à compléter par Oumou
+	 */
+	@Test
+	public void testNumberOfRounds() {
+		// pour alex
+	}
+
+	/**
+	 * Javadoc à compléter par Oumou
+	 */
+	@Test
 	public void testVictoire1() { // OK
 		// FIRST joue dans la case (0,0)
 		morpions.play(0, 0);
@@ -123,8 +180,47 @@ public class TicTacToeTest {
 	 */
 	@Test
 	public void testVictoire2() { // En cours
-		// à compléter
+		testEmptyGrid();
 
+		// FIRST joue dans la case (0,0)
+		morpions.play(0, 0);
+		testInvariant();
+
+		// SECOND joue dans la case (0,1)
+		morpions.play(0, 1);
+		testInvariant();
+
+		// FIRST joue dans la case (2,1)
+		morpions.play(2, 1);
+		testInvariant();
+
+		// SECOND joue dans la case (1,2)
+		morpions.play(1, 2);
+		testInvariant();
+
+		// FIRST joue dans la case (1,0)
+		morpions.play(1, 0);
+		testInvariant();
+
+		// SECOND joue dans la case (2,2)
+		morpions.play(2, 2);
+		testInvariant();
+
+		// FIRST joue dans la case (0, 2)
+		morpions.play(0, 2);
+		testInvariant();
+
+		// SECOND joue dans la case (1,1)
+		morpions.play(1, 1);
+		testInvariant();
+
+		// FIRST joue dans la case (2, 0)
+		morpions.play(2, 0);
+		testInvariant();
+
+		assertEquals(NB_CASES, morpions.numberOfRounds(), "Le nombre de coups joué n'est pas égal à 9");
+		assertEquals(Owner.FIRST, morpions.getWinner(), "FIRST doit être le vainqueur");
+		assertTrue(morpions.gameOver(), "La partie doit être terminée");
 	}
 
 	/**
@@ -170,9 +266,17 @@ public class TicTacToeTest {
 		morpions.play(0, 0);
 		testInvariant();
 
-		assertEquals(9, morpions.numberOfRounds(), "Le nombre de coups joué n'est pas égal à 9");
+		assertEquals(NB_CASES, morpions.numberOfRounds(), "Le nombre de coups joué n'est pas égal à 9");
 		assertEquals(Owner.NONE, morpions.getWinner(), "Il ne doit pas y avoir de vainqueur");
 		assertTrue(morpions.gameOver(), "La partie doit être terminée");
+	}
+
+	/**
+	 * Javadoc à compléter par Oumou
+	 */
+	@Test
+	public void testGameOver() { // En cours
+		// pour alex
 	}
 
 }
