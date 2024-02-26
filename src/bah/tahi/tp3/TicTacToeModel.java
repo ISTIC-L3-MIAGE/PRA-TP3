@@ -40,6 +40,7 @@ public class TicTacToeModel implements AbstractTicTacToe {
 
 	@Override
 	public Owner getSquare(int row, int column) { // OK
+		// Gestion d'exception à faire: Vérifier les coords
 		return this.grid[row][column];
 	}
 
@@ -60,11 +61,22 @@ public class TicTacToeModel implements AbstractTicTacToe {
 
 	@Override
 	public void play(int row, int column) { // OK
+		// Gestion d'exception à faire:
+		// 1. Vérifier les coords
+		// 2. Partie pas finie
+		// 3. round <= nb de cases
+
 		this.grid[row][column] = this.currentPlayer;
+		this.round++;
+
+		// Vérifier s'il y a un gagnant: Algo de détection de victoire
+
+		this.nextPlayer();
 	}
 
 	@Override
 	public boolean legalMove(int row, int column) { // OK
+		// Gestion d'exception à faire: Vérifier les coords
 		return this.getSquare(row, column).equals(Owner.NONE) && !this.gameOver();
 	}
 

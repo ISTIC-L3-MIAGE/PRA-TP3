@@ -7,9 +7,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import fr.istic.l3miage.morpion.AbstractTicTacToe;
+import bah.tahi.tp3.AbstractTicTacToe;
+import bah.tahi.tp3.TicTacToeModel;
+//import fr.istic.l3miage.morpion.AbstractTicTacToe;
 import fr.istic.l3miage.morpion.Owner;
-import fr.istic.l3miage.morpion.TicTacToeV7;
 
 public class TicTacToeTest {
 	AbstractTicTacToe morpions;
@@ -24,7 +25,8 @@ public class TicTacToeTest {
 //		morpions = new TicTacToeV4();
 //		morpions = new TicTacToeV5();
 //		morpions = new TicTacToeV6();
-		morpions = new TicTacToeV7();
+//		morpions = new TicTacToeV7();
+		morpions = new TicTacToeModel();
 	}
 
 	@Test
@@ -110,6 +112,7 @@ public class TicTacToeTest {
 	@Test
 	public void testValidSquare() {
 		// pour oumou
+		assertTrue(false, "Pas encore implémenté");
 	}
 
 	/**
@@ -118,6 +121,7 @@ public class TicTacToeTest {
 	@Test
 	public void testNextPlayer() {
 		// pour oumou
+		assertTrue(false, "Pas encore implémenté");
 	}
 
 	/**
@@ -126,6 +130,7 @@ public class TicTacToeTest {
 	@Test
 	public void testPlay() {
 		// pour oumou
+		assertTrue(false, "Pas encore implémenté");
 	}
 
 	/**
@@ -134,6 +139,7 @@ public class TicTacToeTest {
 	@Test
 	public void testLegalMove() {
 		// pour oumou
+		assertTrue(false, "Pas encore implémenté");
 	}
 
 	/**
@@ -142,6 +148,7 @@ public class TicTacToeTest {
 	@Test
 	public void testNumberOfRounds() {
 		// pour alex
+		assertTrue(false, "Pas encore implémenté");
 	}
 
 	/**
@@ -277,6 +284,7 @@ public class TicTacToeTest {
 	@Test
 	public void testGameOver() { // En cours
 		// pour alex
+		assertTrue(false, "Pas encore implémenté");
 	}
 
 }
