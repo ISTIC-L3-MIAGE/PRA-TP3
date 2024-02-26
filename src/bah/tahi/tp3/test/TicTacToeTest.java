@@ -29,12 +29,12 @@ public class TicTacToeTest {
 
 	@Test
 	public void testInit() { // OK
-		testInvariant();
 		testEmptyGrid();
 		assertEquals(Owner.FIRST, morpions.getTurn(), "Le premier doit jouer");
 		assertEquals(Owner.NONE, morpions.getWinner(), "Il ne doit pas y avoir de gagnant au début de la partie");
 		assertEquals(0, morpions.numberOfRounds(), "Il doit y avoir 0 coup joué au début de la partie");
 		assertTrue(!morpions.gameOver(), "La partie ne doit pas être terminée au debut");
+		testInvariant();
 	}
 
 	/**
@@ -88,11 +88,66 @@ public class TicTacToeTest {
 	}
 
 	@Test
-	public void testGetVainqueur() {
+	public void testGetVainqueur() { // En cours
 		// scénarios vérifiant le bon fonctionnement de getWinner()
 		// et ainsi de suite pour numberOfRounds(), ... , jusqu’à play()
 		assertEquals(Owner.FIRST, morpions.getTurn(), "Dès le début du jeu, ça doit être au premier joueur de jouer");
 
+		testVictoire1();
+
+		morpions.restart();
+		testVictoire2();
+
+		morpions.restart();
+		testMatchNul();
+	}
+
+	/**
+	 * Javadoc à compléter par Oumou
+	 */
+	private void testVictoire1() { // OK
+		// FIRST joue dans la case (0,0)
+		morpions.play(0, 0);
+		morpions.nextPlayer();
+		testInvariant();
+
+		// SECOND joue dans la case (1,1)
+		morpions.play(1, 1);
+		morpions.nextPlayer();
+		testInvariant();
+
+		// FIRST joue dans la case (0,2)
+		morpions.play(0, 2);
+		morpions.nextPlayer();
+		testInvariant();
+
+		// SECOND joue dans la case (2,1)
+		morpions.play(2, 1);
+		morpions.nextPlayer();
+		testInvariant();
+
+		// FIRST joue dans la case (0,1)
+		morpions.play(0, 1);
+		morpions.nextPlayer();
+		testInvariant();
+
+		assertEquals(5, morpions.numberOfRounds(), "Le nombre de coups joué n'est pas égal à 5");
+		assertEquals(Owner.FIRST, morpions.getWinner(), "FIRST n'est pas le vainqueur");
+		assertTrue(morpions.gameOver(), "La partie doit être terminée");
+	}
+
+	/**
+	 * Javadoc à compléter par Oumou
+	 */
+	private void testVictoire2() { // En cours
+		// à compléter
+	}
+
+	/**
+	 * Javadoc à compléter par Oumou
+	 */
+	private void testMatchNul() { // En cours
+		// à compléter
 	}
 
 }

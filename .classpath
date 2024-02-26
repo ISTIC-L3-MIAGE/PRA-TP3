@@ -7,6 +7,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
-	<classpathentry kind="lib" path="/private/student/i/hi/etahi/Documents/L3 MIAGE/PRA/PRA-TP3/pra-tp3.jar"/>
+	<classpathentry kind="lib" path="D:/Home/etahi/OneDrive - Université de Rennes/PRA/PRA-TP3/pra-tp3.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
