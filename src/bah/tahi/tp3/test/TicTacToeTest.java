@@ -87,50 +87,32 @@ public class TicTacToeTest {
 		}
 	}
 
-	@Test
-	public void testGetVainqueur() { // En cours
-		// scénarios vérifiant le bon fonctionnement de getWinner()
-		// et ainsi de suite pour numberOfRounds(), ... , jusqu’à play()
-		assertEquals(Owner.FIRST, morpions.getTurn(), "Dès le début du jeu, ça doit être au premier joueur de jouer");
-
-		testVictoire1();
-
-		morpions.restart();
-		testVictoire2();
-
-		morpions.restart();
-		testMatchNul();
-	}
-
 	/**
 	 * Javadoc à compléter par Oumou
 	 */
-	private void testVictoire1() { // OK
+	@Test
+	public void testVictoire1() { // OK
 		// FIRST joue dans la case (0,0)
 		morpions.play(0, 0);
-		morpions.nextPlayer();
 		testInvariant();
 
 		// SECOND joue dans la case (1,1)
 		morpions.play(1, 1);
-		morpions.nextPlayer();
 		testInvariant();
 
 		// FIRST joue dans la case (0,2)
 		morpions.play(0, 2);
-		morpions.nextPlayer();
 		testInvariant();
 
 		// SECOND joue dans la case (2,1)
 		morpions.play(2, 1);
-		morpions.nextPlayer();
 		testInvariant();
 
 		// FIRST joue dans la case (0,1)
 		morpions.play(0, 1);
-		morpions.nextPlayer();
 		testInvariant();
 
+		// Vérifications
 		assertEquals(5, morpions.numberOfRounds(), "Le nombre de coups joué n'est pas égal à 5");
 		assertEquals(Owner.FIRST, morpions.getWinner(), "FIRST n'est pas le vainqueur");
 		assertTrue(morpions.gameOver(), "La partie doit être terminée");
@@ -139,15 +121,58 @@ public class TicTacToeTest {
 	/**
 	 * Javadoc à compléter par Oumou
 	 */
-	private void testVictoire2() { // En cours
+	@Test
+	public void testVictoire2() { // En cours
 		// à compléter
+
 	}
 
 	/**
 	 * Javadoc à compléter par Oumou
 	 */
-	private void testMatchNul() { // En cours
-		// à compléter
+	@Test
+	public void testMatchNul() { // En cours
+		testEmptyGrid();
+
+		// FIRST joue dans la case (0,0)
+		morpions.play(2, 2);
+		testInvariant();
+
+		// SECOND joue dans la case (0,1)
+		morpions.play(0, 1);
+		testInvariant();
+
+		// FIRST joue dans la case (0,2)
+		morpions.play(1, 0);
+		testInvariant();
+
+		// SECOND joue dans la case (0,1)
+		morpions.play(1, 2);
+		testInvariant();
+
+		// FIRST joue dans la case (0,2)
+		morpions.play(0, 2);
+		testInvariant();
+
+		// SECOND joue dans la case (0,1)
+		morpions.play(1, 1);
+		testInvariant();
+
+		// FIRST joue dans la case (0,2)
+		morpions.play(2, 1);
+		testInvariant();
+
+		// SECOND joue dans la case (0,1)
+		morpions.play(2, 0);
+		testInvariant();
+
+		// FIRST joue dans la case (0,2)
+		morpions.play(0, 0);
+		testInvariant();
+
+		assertEquals(9, morpions.numberOfRounds(), "Le nombre de coups joué n'est pas égal à 9");
+		assertEquals(Owner.NONE, morpions.getWinner(), "Il ne doit pas y avoir de vainqueur");
+		assertTrue(morpions.gameOver(), "La partie doit être terminée");
 	}
 
 }
