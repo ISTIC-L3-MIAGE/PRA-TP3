@@ -70,8 +70,31 @@ public class TicTacToeModel implements AbstractTicTacToe {
 		this.round++;
 
 		// Vérifier s'il y a un gagnant: Algo de détection de victoire
+		if (this.numberOfRounds() >= 5 && this.hasWinCase()) {
+			this.over = true;
+		}
 
 		this.nextPlayer();
+	}
+
+	private boolean hasWinCase() {
+		boolean verticalWin = false, horizontalWin = false, diagonalWin = false;
+
+		for (int i = 0; i < BOARD_HEIGHT; i++) {
+			for (int j = 0; j < BOARD_WIDTH; j++) {
+				if (j > 0 && !this.grid[i][j].equals(this.grid[i][j - 1])) {
+				}
+			}
+		}
+
+		/*
+		 * while (i < BOARD_HEIGHT && (!verticalWin && !horizontalWin)) { while (j <
+		 * BOARD_WIDTH && (!verticalWin && !horizontalWin)) { // Checking horizontal win
+		 * case if (j > 0 && !this.grid[i][j].equals(this.grid[i][j - 1])) {
+		 * 
+		 * } } }
+		 */
+		return verticalWin || horizontalWin || diagonalWin;
 	}
 
 	@Override
